@@ -2,13 +2,14 @@ package br.com.mentorama.Mod05TestesUnitarios.service;
 
 import br.com.mentorama.Mod05TestesUnitarios.model.Order;
 import br.com.mentorama.Mod05TestesUnitarios.model.OrderItem;
-import br.com.mentorama.Mod05TestesUnitarios.model.Product;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class OrderCalculatorTest {
 
@@ -34,16 +35,17 @@ class OrderCalculatorTest {
 
     private List<OrderItem> aListOfOrderItems() {
         return Arrays.asList(
-                aOderItem(2, 0.0, 10.0, 0.10),
-                aOderItem(10, 0.0, 1.0, 0.10)
+                anOrderItem(20.0),
+                anOrderItem(10.0)
         );
     }
 
-    private OrderItem aOderItem(final Integer quantity,
-                                final Double discount,
-                                final Double price,
-                                final Double maxDiscountPercentage) {
-        final Product product = new Product(1L, "TESTE", price, maxDiscountPercentage);
-        return new OrderItem(product, quantity, discount);
+    private OrderItem anOrderItem(final Double expectedValue) {
+//        final Product product = mock(Product.class);
+//        when(product.getPriceWithDiscount(Mockito.anyDouble())).thenReturn(expectedValue);
+        // Não precisamos mockar Product, basta mockar OrderItem diretamente.
+        OrderItem orderItem = mock(OrderItem.class);
+        when(orderItem.totalPrice()).thenReturn(expectedValue);
+        return orderItem;
     }
 }
