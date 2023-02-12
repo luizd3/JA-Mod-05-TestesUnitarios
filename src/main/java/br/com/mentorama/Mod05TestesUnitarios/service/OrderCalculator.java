@@ -10,4 +10,9 @@ public class OrderCalculator {
         return items.stream().mapToDouble(OrderItem::totalPrice)
                 .sum();
     }
+
+    public Double calculateMultipleOrders(final List<List<OrderItem>> orders) {
+        return orders.stream().mapToDouble(this::calculateOrder)
+                .sum();
+    }
 }
