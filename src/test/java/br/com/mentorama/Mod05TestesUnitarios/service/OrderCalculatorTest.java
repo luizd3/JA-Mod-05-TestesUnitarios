@@ -1,5 +1,6 @@
 package br.com.mentorama.Mod05TestesUnitarios.service;
 
+import br.com.mentorama.Mod05TestesUnitarios.model.Order;
 import br.com.mentorama.Mod05TestesUnitarios.model.OrderItem;
 import br.com.mentorama.Mod05TestesUnitarios.model.Product;
 import org.junit.jupiter.api.Test;
@@ -14,20 +15,24 @@ class OrderCalculatorTest {
     @Test
     public void shouldCalculateTotalOrderPrice() {
         final OrderCalculator orderCalculator = new OrderCalculator();
-        final List<OrderItem> orderItems = anOrder();
-        final Double result = orderCalculator.calculateOrder(orderItems);
+        final Order order = new Order(aListOfOrderItems());
+        final Double result = orderCalculator.calculateOrder(order);
         assertEquals(30, result);
     }
 
     @Test
     public void shouldCalculateTotalOfMultipleOrders() {
         final OrderCalculator orderCalculator = new OrderCalculator();
-        final List<List<OrderItem>> orders = Arrays.asList(anOrder(), anOrder());
+        final List<Order> orders =
+                Arrays.asList(
+                        new Order(aListOfOrderItems()),
+                        new Order(aListOfOrderItems())
+                );
         final Double result = orderCalculator.calculateMultipleOrders(orders);
         assertEquals(60.0, result);
     }
 
-    private List<OrderItem> anOrder() {
+    private List<OrderItem> aListOfOrderItems() {
         return Arrays.asList(
                 aOderItem(2, 0.0, 10.0, 0.10),
                 aOderItem(10, 0.0, 1.0, 0.10)
