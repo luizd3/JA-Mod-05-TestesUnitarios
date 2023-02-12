@@ -2,8 +2,7 @@ package br.com.mentorama.Mod05TestesUnitarios.service;
 
 import br.com.mentorama.Mod05TestesUnitarios.model.Order;
 import br.com.mentorama.Mod05TestesUnitarios.model.OrderItem;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,13 +16,29 @@ class OrderCalculatorTest {
     private final OrderCalculator orderCalculator;
 
     public OrderCalculatorTest() {
+        System.out.println("Construtor");
         this.orderCalculator = new OrderCalculator();
     }
 
-//    @BeforeEach //Podemos utilizar um construtor vazio para usar a mesma instância em todos os testes.
-//    void setUp() {
-//        this.orderCalculator = new OrderCalculator();
-//    }
+    @BeforeEach
+    void setUp() {
+        System.out.println("Before Each");
+    }
+
+    @BeforeAll
+    static void setupAll() {
+        System.out.println("Before All");
+    }
+
+    @AfterAll
+    static void afterAll() {
+        System.out.println("After All");
+    }
+
+    @AfterEach
+    void afterEach() {
+        System.out.println("After Each");
+    }
 
     @Test
     public void shouldCalculateTotalOrderPrice() {
