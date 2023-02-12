@@ -2,6 +2,7 @@ package br.com.mentorama.Mod05TestesUnitarios.service;
 
 import br.com.mentorama.Mod05TestesUnitarios.model.Order;
 import br.com.mentorama.Mod05TestesUnitarios.model.OrderItem;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -13,9 +14,19 @@ import static org.mockito.Mockito.when;
 
 class OrderCalculatorTest {
 
+    private final OrderCalculator orderCalculator;
+
+    public OrderCalculatorTest() {
+        this.orderCalculator = new OrderCalculator();
+    }
+
+//    @BeforeEach //Podemos utilizar um construtor vazio para usar a mesma instância em todos os testes.
+//    void setUp() {
+//        this.orderCalculator = new OrderCalculator();
+//    }
+
     @Test
     public void shouldCalculateTotalOrderPrice() {
-        final OrderCalculator orderCalculator = new OrderCalculator();
         final Order order = new Order(aListOfOrderItems());
         final Double result = orderCalculator.calculateOrder(order);
         assertEquals(30, result);
@@ -23,7 +34,6 @@ class OrderCalculatorTest {
 
     @Test
     public void shouldCalculateTotalOfMultipleOrders() {
-        final OrderCalculator orderCalculator = new OrderCalculator();
         final List<Order> orders =
                 Arrays.asList(
                         new Order(aListOfOrderItems()),
