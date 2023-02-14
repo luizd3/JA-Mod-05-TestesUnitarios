@@ -1,4 +1,4 @@
-package br.com.mentorama.Mod05TestesUnitarios;
+package br.com.mentorama.mod05testesunitarios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

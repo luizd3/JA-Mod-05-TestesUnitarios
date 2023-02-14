@@ -1,4 +1,4 @@
-package br.com.mentorama.Mod05TestesUnitarios.model;
+package br.com.mentorama.mod05testesunitarios.model;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;

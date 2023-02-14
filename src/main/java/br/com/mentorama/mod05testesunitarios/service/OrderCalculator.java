@@ -1,7 +1,7 @@
-package br.com.mentorama.Mod05TestesUnitarios.service;
+package br.com.mentorama.mod05testesunitarios.service;
 
-import br.com.mentorama.Mod05TestesUnitarios.model.Order;
-import br.com.mentorama.Mod05TestesUnitarios.model.OrderItem;
+import br.com.mentorama.mod05testesunitarios.model.Order;
+import br.com.mentorama.mod05testesunitarios.model.OrderItem;
 
 import java.util.List;
 

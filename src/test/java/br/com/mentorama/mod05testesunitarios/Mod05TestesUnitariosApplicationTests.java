@@ -1,4 +1,4 @@
-package br.com.mentorama.Mod05TestesUnitarios;
+package br.com.mentorama.mod05testesunitarios;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
